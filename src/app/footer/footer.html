@@ -1,0 +1,28 @@
+<footer>
+  <section class="proficiencies">
+    <h2 class="section-title">Technical Proficiencies</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Tool</th>
+            <th scope="col">Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of proficiencies(); track item.tool) {
+            <tr>
+              <td>{{ item.tool }}</td>
+              <td>
+                <span [class]="'level ' + item.level.toLowerCase()">{{ item.level }}</span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="copyright">&copy; {{ year }} {{ fullName() }}. Built with Angular.</p>
+</footer>

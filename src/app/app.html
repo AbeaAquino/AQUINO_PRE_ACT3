@@ -1,24 +1,12 @@
 <main class="resume">
-  <header class="intro">
-    <h1>{{ fullName }}</h1>
-    <p class="headline">{{ headline }}</p>
-    <p class="contact">
-      <span>{{ location }}</span>
-      <span class="divider" aria-hidden="true">|</span>
-      <span>{{ phone }}</span>
-      <span class="divider" aria-hidden="true">|</span>
-      <a [href]="'mailto:' + email">{{ email }}</a>
-    </p>
-  </header>
+  <app-header
+    [fullName]="fullName"
+    [location]="location"
+    [email]="email"
+    [phone]="phone"
+    [profile]="profile" />
 
   <div class="content">
-    <section>
-      <h2>Personal Profile</h2>
-      @for (paragraph of profile; track paragraph) {
-        <p>{{ paragraph }}</p>
-      }
-    </section>
-
     <section>
       <h2>Education</h2>
       <article class="education-card">
@@ -39,21 +27,19 @@
       </article>
     </section>
 
-    <app-profile-card></app-profile-card>
+    <app-profile-card />
 
-    <section>
-      <h2>Key Skills</h2>
-      <ul class="skills">
-        @for (skill of skills; track skill) {
-          <li>{{ skill }}</li>
-        }
-      </ul>
-    </section>
+    <app-skills
+      [skills]="skills"
+      (skillSelected)="onSkillSelected($event)" />
 
     <section class="interaction">
       <h2>Angular Interaction</h2>
       <p class="message" aria-live="polite">{{ message() }}</p>
-      <button type="button" class="btn" (click)="showMessage()">Click Me</button>
     </section>
   </div>
+
+  <app-footer
+    [fullName]="fullName"
+    [proficiencies]="proficiencies" />
 </main>

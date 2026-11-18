@@ -1,0 +1,95 @@
+:host {
+  display: block;
+  font-family: 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+/* Name and contact */
+.intro {
+  padding: 40px 48px 28px;
+  text-align: center;
+  border-bottom: 1px solid #ecd9de;
+}
+
+.intro h1 {
+  margin: 0 0 10px;
+  color: #800020;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.contact {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 12px;
+  color: #555555;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.contact a {
+  color: #800020;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(128, 0, 32, 0.35);
+}
+
+.contact a:hover {
+  border-bottom-color: #800020;
+}
+
+.divider {
+  opacity: 0.5;
+}
+
+/* Personal Profile */
+.profile {
+  padding: 32px 48px 8px;
+}
+
+.section-title {
+  position: relative;
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  color: #800020;
+  border-bottom: 1px solid #ecd9de;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 56px;
+  height: 3px;
+  background: #800020;
+}
+
+.profile p {
+  margin: 0;
+  color: #444444;
+}
+
+.profile p + p {
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  .intro {
+    padding: 28px 20px 22px;
+  }
+
+  .intro h1 {
+    font-size: 1.7rem;
+  }
+
+  .profile {
+    padding: 24px 20px 4px;
+  }
+}

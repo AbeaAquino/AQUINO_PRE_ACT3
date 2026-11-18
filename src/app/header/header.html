@@ -1,0 +1,17 @@
+<header class="intro">
+  <h1>{{ fullName() }}</h1>
+  <p class="contact">
+    <span>{{ location() }}</span>
+    <span class="divider" aria-hidden="true">|</span>
+    <span>{{ phone() }}</span>
+    <span class="divider" aria-hidden="true">|</span>
+    <a [href]="'mailto:' + email()">{{ email() }}</a>
+  </p>
+</header>
+
+<section class="profile">
+  <h2 class="section-title">Personal Profile</h2>
+  @for (paragraph of profile(); track paragraph) {
+    <p>{{ paragraph }}</p>
+  }
+</section>

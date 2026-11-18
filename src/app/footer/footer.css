@@ -1,0 +1,127 @@
+:host {
+  display: block;
+  font-family: 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+/* Same side padding as the .content area in app.css */
+.proficiencies {
+  padding: 8px 40px 40px;
+}
+
+.section-title {
+  position: relative;
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  color: #800020;
+  border-bottom: 1px solid #ecd9de;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: #800020;
+}
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid #ecd9de;
+  border-left: 4px solid #800020;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(74, 14, 30, 0.06);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 20px;
+  text-align: left;
+}
+
+th {
+  background: #fbf6f7;
+  color: #5c0a1e;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ecd9de;
+}
+
+td {
+  color: #444444;
+  border-bottom: 1px solid #f0e2e6;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background: #fbf6f7;
+}
+
+/* Level badges */
+.level {
+  display: inline-block;
+  padding: 3px 14px;
+  border: 1px solid #e6c3cd;
+  border-radius: 999px;
+  background: #f8eaee;
+  color: #6b0f2a;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.level.advanced {
+  background: #800020;
+  border-color: #800020;
+  color: #ffffff;
+}
+
+.level.beginner {
+  background: #ffffff;
+}
+
+/* Copyright bar */
+.copyright {
+  margin: 0;
+  padding: 18px 24px;
+  background: #5c0a1e;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .proficiencies {
+    padding: 4px 20px 28px;
+  }
+
+  th,
+  td {
+    padding: 10px 14px;
+  }
+}
+
+@media print {
+  .copyright,
+  .level.advanced {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -1,25 +1,29 @@
-import { Component, computed, signal } from '@angular/core';
+ import { Component, signal } from '@angular/core';
+import { Header } from './header/header';
 import { ProfileCard } from './profile-card/profile-card';
+import { Skills } from './skills/skills';
+import { Footer } from './footer/footer';
+import { Proficiency } from './proficiency';
 
 @Component({
-  imports: [ProfileCard],
+  imports: [Header, ProfileCard, Skills, Footer],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
-  readonly fullName = 'Abea Venice P. Aquino';
-  readonly headline = 'Web Development Student';
-  readonly location = 'City of San Fernando, Pampanga';
-  readonly email = 'abeaaquino29@gmail.com';
-  readonly phone = '0926 228 7984';
+  fullName = 'Abea Venice P. Aquino';
+  headline = 'Web Development Student';
+  location = 'City of San Fernando, Pampanga';
+  email = 'abeaaquino29@gmail.com';
+  phone = '0926 228 7984';
 
-  readonly profile = [
+  profile = [
     'I am a motivated student with a strong interest in web development and a passion for turning ideas into clean, functional applications. I enjoy the full process of building something: planning the structure, writing the code, and refining the design until it feels polished and easy to use.',
     'I am currently developing my skills in HTML, CSS, JavaScript, TypeScript and Angular. I learn best by building, so I spend much of my time practicing with small projects, exploring new tools and studying how modern web applications are structured.',
   ];
 
-  readonly education = {
+  education = {
     school: 'Holy Angel University',
     location: 'Angeles City, Pampanga',
     program: 'Web Development',
@@ -32,18 +36,29 @@ export class App {
     ],
   };
 
-  readonly skills = ['HTML and CSS', 'JavaScript', 'TypeScript', 'Angular'];
+  skills = [
+    'HTML and CSS',
+    'JavaScript',
+    'TypeScript',
+    'Angular',
+    'Git and GitHub',
+    'Figma',
+  ];
 
-  private readonly clickCount = signal(0);
 
-  readonly message = computed(() => {
-    const count = this.clickCount();
-    return count === 0
-      ? 'Welcome to my profile!'
-      : `You clicked the button ${count} ${count === 1 ? 'time' : 'times'}.`;
-  });
+  proficiencies: Proficiency[] = [
+    { tool: 'Visual Studio Code', level: 'Advanced' },
+    { tool: 'Git and GitHub', level: 'Intermediate' },
+    { tool: 'Node.js and npm', level: 'Intermediate' },
+    { tool: 'Figma', level: 'Intermediate' },
+    { tool: 'Angular CLI', level: 'Beginner' },
+  ];
 
-  showMessage() {
-    this.clickCount.update((n) => n + 1);
+  message = signal('Click any skill above to select it.');
+
+  // Runs when the Skills component emits a skillSelected event.
+  onSkillSelected(skill: string) {
+    this.message.set(`You selected: ${skill}`);
   }
 }
+
